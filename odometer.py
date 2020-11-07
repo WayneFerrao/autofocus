@@ -3,24 +3,38 @@ import numpy as np
 import random
 import csv
 
-df = pd.read_csv("dummy2.csv")
-df['odometer'].astype(float)
-df['price'].astype(float)
-df['year'].astype(float)
-df['odometer'].fillna(0.0, inplace=True)
-dff = df[df.odometer.notnull()]
-dff = dff.loc[dff['odometer'] != 0]
-# =============================================================================
-# df = df[df.year.notnull()]
-# df = df[df.price.notnull()]
-# select_color = df.loc[df['price'] >= 200]
-# select_color.to_csv("dummy2.csv")
-# =============================================================================
-#print(df['odometer'].isnull().sum())
+file = "dummy4.csv"
 
+df = pd.read_csv(file)
+
+#odometer has an "automatic" value that we need to remove
+df['odometer'].fillna(0, inplace=True)
+df['price'].fillna(0.0, inplace=True)
+df['year'].fillna(0.0, inplace=True)
+
+#removes all values from price, odometer, and year that are non convertible to float
+for elem in range(len(df)):
+    try:
+        df['odometer'][elem].astype(float)
+    except:
+        df['odometer'][elem] = float(0)
+    try:
+        df['price'][elem].astype(float)
+    except:
+        df['price'][elem] = float(0)
+    try:
+        df['year'][elem].astype(float)
+    except:
+        df['year'][elem] = float(0)
+
+#new dff using df without null price and year
+dff = df[df.price.notnull()]
+dff = dff[df.year.notnull()]
+dff = dff.loc[dff['odometer'] != 0]
 
 #run through each year and get number to represent average price of a car that year.
 uniqueYears = set(dff['year'])
+uniqueYears.remove(0)
 ratios = {}
 for year in uniqueYears:
     dfYear = dff.loc[dff['year'] == year]
@@ -39,5 +53,6 @@ for row in range(len(df)):
         average = ratios[year]
         odometer = df['price'][row] / average
         df['odometer'][row] = odometer
-df.to_csv("dummy3.csv")
+newfile = "odometerTest.csv"
+df.to_csv(newfile)
     
