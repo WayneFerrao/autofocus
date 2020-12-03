@@ -1,5 +1,5 @@
 # autofocus
-A web application focused on finding the most accurate price of a used car using machine learning
+A web application focused on finding the most accurate price of a used car using machine learning techniques.
 
 
 Start up the Autofocus webapp (a development server) by going into the client directory and entering the following in your terminal
