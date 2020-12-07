@@ -46,11 +46,11 @@ const TransitionText = styled.h1`
 function App() {
   const [currentTime, setCurrentTime] = useState(0);
 
-  useEffect(()=>{
-    fetch('/time').then(res => res.json()).then(data => {
-      setCurrentTime(data.time);
-    })
-  },[]); 
+  // useEffect(()=>{
+  //   fetch('/time').then(res => res.json()).then(data => {
+  //     setCurrentTime(data.time);
+  //   })
+  // },[]); 
 
  
   const Home = () => (

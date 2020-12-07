@@ -22,8 +22,6 @@ const Item = styled.p`
   }
 `;
 
-
-
 export default function NavBar() {
     return (
         <RowDiv>

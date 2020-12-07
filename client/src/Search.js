@@ -17,7 +17,7 @@ const SearchPageParallax = styled.div`
   z-index: 999;
 `;
 const SearchPageBG = styled.div`
-  height: 102vh;
+  height: 100vh;
   width: 100vw;
 
   background-image:  url(${car});
@@ -38,7 +38,7 @@ const ParticleContainer = styled.div`
 position:absolute;
   width: 100vw;
   text-align:center
-  height: 100%;
+  height: 70vh;
   z-index: 50;
 `;
 
