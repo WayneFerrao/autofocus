@@ -1,3 +1,6 @@
 vehicles.csv
 dividedsamples/*
 lib
+final.csv
+server/venv/finalEncoded.csv
+server/venv/finalized_model_pickle.sav
